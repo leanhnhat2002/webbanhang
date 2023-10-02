@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="bae113f38c4c4aff8825a18ddcdce7d1" Name="Diagram1">
         <EntityTypeShape EntityType="websiteBHModel.Product" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="websiteBHModel.Course" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
