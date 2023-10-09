@@ -4,16 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using webbanhang.Context;
-
+using webbanhang.Models;
 namespace webbanhang.Controllers
 {
     public class HomeController : Controller
     {
-        websiteBHEntities objwebsiteBHEntities = new websiteBHEntities();
+        websiteBHEntities1 obj = new websiteBHEntities1();
         public ActionResult Index()
         {
-            var listProduct = objwebsiteBHEntities.Products.ToList();
-            return View();
+            // lấy danh mục
+            var lstCategory = obj.Categories.ToList();
+            //lấy sản phẩm
+            var lstProduct = obj.Products.ToList();
+
+            HomeModel objHome = new HomeModel();
+            objHome.ListProducts = lstProduct;
+            objHome.ListCategory = lstCategory;
+            return View(objHome);
         }
 
     }

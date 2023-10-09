@@ -27,5 +27,7 @@ namespace webbanhang.Context
     
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
+        public object Category { get; internal set; }
+        public object Categories { get; internal set; }
     }
 }

@@ -34,5 +34,10 @@ namespace webbanhang.Areas.Admin.Controllers
             objwebsiteBHEntities.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult Details(int id)
+        {
+            var course = objwebsiteBHEntities.Courses.FirstOrDefault(p => p.Id == id);
+            return View(course);
+        }
     }
 }
