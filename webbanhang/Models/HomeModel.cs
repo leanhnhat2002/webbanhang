@@ -10,5 +10,6 @@ namespace webbanhang.Models
     {
         public List<Product> ListProducts { get; set; }
         public List<Category> ListCategory { get; set; }
+
     }
 }

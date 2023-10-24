@@ -46,7 +46,7 @@
 
                     <div class="feature-1 border">
                         <div class="icon-wrapper bg-primary">
-                            <span class="flaticon-mortarboard text-white"></span>
+                            <span class="<flaticon-mortarboard text-white"></span>
                         </div>
                         <div class="feature-1-content">
                             <h2>Personalize Learning</h2>
@@ -78,39 +78,73 @@
 
         <div class="row">
             <div class="col-12">
+                <div class="owl-slide-3 owl-carousel">
+                    @foreach (var item in Model.ListProducts)
+                    {
 
-                @foreach (var item in Model.ListProducts)
-                {
-                    <div class="owl-slide-3 owl-carousel">
                         <div class="course-1-item">
                             <figure class="thumnail">
-                                <a href="course-single.html"><img src="~/Content/images/course_1.jpg" alt="Image" class="img-fluid"></a>
+                                <a href="@Url.Action("Detail","Product", new { Id = item.id})"><img src="~/Content/images/@item.Avatar" alt="Image" class="img-fluid"></a>
                                 <div class="price">@item.price</div>
                                 <div class="category"><h3>@item.Name</h3></div>
                             </figure>
                             <div class="course-1-content pb-4">
                                 <h2>How To Create Mobile Apps Using Ionic</h2>
-                                <div class="rating text-center mb-3">
+                                @*<div class="rating text-center mb-3">
                                     <span class="icon-star2 text-warning"></span>
                                     <span class="icon-star2 text-warning"></span>
                                     <span class="icon-star2 text-warning"></span>
                                     <span class="icon-star2 text-warning"></span>
                                     <span class="icon-star2 text-warning"></span>
-                                </div>
-                                <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                                <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
+                                </div>*@
+                                <p class="desc mb-4">@item.Mota</p>
+                                <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Đặt Hàng</a></p>
+                                
+
                             </div>
                         </div>
 
-
-
-
-                    </div>
-
-                }
-
+                    }
+                </div>
             </div>
         </div>
+
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="owl-slide-3 owl-carousel">
+                    @foreach (var item in Model.ListProducts)
+                    {
+
+                        <div class="course-1-item">
+                            <figure class="thumnail">
+                                <a href="@Url.Action("Detail","Product", new { Id = item.id})"><img src="~/Content/images/@item.Avatar" alt="Image" class="img-fluid"></a>
+                                <div class="price">@item.price</div>
+                                <div class="category"><h3>@item.Name</h3></div>
+                            </figure>
+                            <div class="course-1-content pb-4">
+                                <h2>How To Create Mobile Apps Using Ionic</h2>
+                                @*<div class="rating text-center mb-3">
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                    <span class="icon-star2 text-warning"></span>
+                                </div>*@
+                                <p class="desc mb-4">@item.Mota</p>
+                                <p><a href="course-single.html" class="btn btn-primary rounded-0 px-4">Đặt Hàng</a></p>
+                               
+
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+
+
 
 
 

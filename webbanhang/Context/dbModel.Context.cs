@@ -25,9 +25,9 @@ namespace webbanhang.Context
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Course> Courses { get; set; }
-        public object Category { get; internal set; }
-        public object Categories { get; internal set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

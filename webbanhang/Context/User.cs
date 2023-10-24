@@ -12,12 +12,12 @@ namespace webbanhang.Context
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class User
     {
-        public int id { get; set; }
-        public string Name { get; set; }
-        public string Avatar { get; set; }
-        public string price { get; set; }
-        public string Mota { get; set; }
+        public int idUser { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
