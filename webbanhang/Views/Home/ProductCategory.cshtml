@@ -1,98 +1,63 @@
-﻿
+﻿@model List<webbanhang.Context.Product>
+
+
 @{
     ViewBag.Title = "ProductCategory";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="product-carousel">
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+
+<div class="site-section ftco-subscribe-1 site-blocks-cover pb-4" style="background-image: url('~/Content/images/bg_1.jpg')">
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-lg-7">
+                <h2 class="mb-0">Danh sách các sản phẩm</h2>
+                
             </div>
         </div>
+    </div>
+</div>
+<div class="custom-breadcrumns border-bottom">
+    <div class="container">
+        <a href="@Url.Action("Index","Home")">Home</a>
+        <span class="mx-3 icon-keyboard_arrow_right"></span>
+        
+    </div>
+</div>
 
-        <h2><a href="single-product.html">Samsung Galaxy s5- 2015</a></h2>
+<div class="site-section">
+    <div class="container">
+        <div class="row">
 
-        <div class="product-carousel-price">
-            <ins>$700.00</ins> <del>$100.00</del>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="course-1-item">
+                        <figure class="thumnail">
+                            <a href="@Url.Action("Detail","Product", new { Id = item.id})"><img src="~/Content/images/@item.Avatar" alt="Image" class="img-fluid"></a>
+                            <div class="price">@item.Price</div>
+                            <div class="category"><h3>@item.Name</h3></div>
+                        </figure>
+                        <div class="course-1-content pb-4">
+                            <h2>Chỉ Có Tại Nhật Mobile</h2>
+                            <div class="rating text-center mb-3">
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                                <span class="icon-star2 text-warning"></span>
+                            </div>
+                            <p class="desc mb-4">@item.Mota</p>
+                            <p><a href="@Url.Action("Detail","Product", new { Id = item.id})" class="btn btn-primary rounded-0 px-4">Đặt Hàng</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+
         </div>
     </div>
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-            </div>
-        </div>
-
-        <h2>Nokia Lumia 1320</h2>
-        <div class="product-carousel-price">
-            <ins>$899.00</ins> <del>$999.00</del>
-        </div>
-    </div>
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-            </div>
-        </div>
-
-        <h2>LG Leon 2015</h2>
-
-        <div class="product-carousel-price">
-            <ins>$400.00</ins> <del>$425.00</del>
-        </div>
-    </div>
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-            </div>
-        </div>
-
-        <h2><a href="single-product.html">Sony microsoft</a></h2>
-
-        <div class="product-carousel-price">
-            <ins>$200.00</ins> <del>$225.00</del>
-        </div>
-    </div>
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-            </div>
-        </div>
-
-        <h2>iPhone 6</h2>
-
-        <div class="product-carousel-price">
-            <ins>$1200.00</ins> <del>$1355.00</del>
-        </div>
-    </div>
-    <div class="single-product">
-        <div class="product-f-image">
-            <img src="~/Content/images/anh1.png" alt="">
-            <div class="product-hover">
-                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
-            </div>
-        </div>
-
-        <h2><a href="single-product.html">Samsung gallaxy note 4</a></h2>
-
-        <div class="product-carousel-price">
-            <ins>$400.00</ins>
-        </div>
-    </div>
-
+</div>
 

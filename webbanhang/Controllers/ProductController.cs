@@ -16,5 +16,9 @@ namespace webbanhang.Controllers
             var objProduct = obj.Products.Where(n => n.id == Id).FirstOrDefault();
             return View(objProduct);
         }
+
+        
     }
+
+   
 }

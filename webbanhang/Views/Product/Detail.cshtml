@@ -1,8 +1,6 @@
 ﻿@model webbanhang.Context.Product
 
 
-
-
 @{
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,18 +29,19 @@
                     <span>@Model.Name</span>
                 </h2>
 
-                <p><strong class="text-black d-block">Giá: </strong> @Model.price</p>
+                <p><strong class="text-black d-block">Giá: </strong> @Model.Price</p>
                
                 <p>@Model.Mota</p>
                
                 
+                        @*<a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Mua ngay</a>*@
+                        <a href="@Url.Action("AddToCart","Cart", new{@id= Model.id, @quantity = 1, @strURL=Request.Url.ToString()})" class="btn btn-primary rounded-0 btn-lg px-5">
+                            Thêm vào giỏ
+                        </a>
 
-                <p>
-                    <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Mua ngay</a>
-                    <a href="#" class="btn btn-primary rounded-0 btn-lg px-5">Thêm vào giỏ</a>
-                </p>
+                    </p>
 
-            </div>
+                </div>
         </div>
     </div>
 </div>

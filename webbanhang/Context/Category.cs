@@ -14,8 +14,10 @@ namespace webbanhang.Context
     
     public partial class Category
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Avatar { get; set; }
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }

@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -130,8 +136,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\CoursesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Context\Cart.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\Category.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -153,30 +164,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Context\Order.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\OrderDetail.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\Product.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\User.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\AboutController.cs" />
-    <Compile Include="Controllers\AdmissionsController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\CoursesSingleController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\IndexController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\NewsSingleController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -198,6 +210,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
     <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\cart.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.fancybox.min.css" />
     <Content Include="Content\css\jquery.mb.YTPlayer.min.css" />
@@ -206,6 +219,7 @@
     <Content Include="Content\css\owl.carousel.min.css" />
     <Content Include="Content\css\owl.theme.default.min.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\style_admin.css" />
     <Content Include="Content\fonts\flaticon\backup.txt" />
     <Content Include="Content\fonts\flaticon\font\flaticon.css" />
     <Content Include="Content\fonts\flaticon\font\flaticon.html" />
@@ -222,6 +236,7 @@
     <Content Include="Content\images\blog_1.jpg" />
     <Content Include="Content\images\blog_2.jpg" />
     <Content Include="Content\images\blog_large_1.jpg" />
+    <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\course_1.jpg" />
     <Content Include="Content\images\course_2.jpg" />
     <Content Include="Content\images\course_3.jpg" />
@@ -234,10 +249,17 @@
     <Content Include="Content\images\iphone15.png" />
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo2.png" />
     <Content Include="Content\images\person_1.jpg" />
     <Content Include="Content\images\person_2.jpg" />
     <Content Include="Content\images\person_3.jpg" />
     <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\images\th01.png" />
+    <Content Include="Content\images\th2.png" />
+    <Content Include="Content\images\th3.png" />
+    <Content Include="Content\images\th4.png" />
+    <Content Include="Content\images\th5.png" />
+    <Content Include="Content\images\th6.png" />
     <Content Include="Content\img\AdminLTELogo.png" />
     <Content Include="Content\images\anh1.png" />
     <Content Include="Content\img\avatar.png" />
@@ -254,6 +276,7 @@
     <Content Include="Content\img\credit\paypal2.png" />
     <Content Include="Content\img\credit\visa.png" />
     <Content Include="Content\img\default-150x150.png" />
+    <Content Include="Content\images\gh.png" />
     <Content Include="Content\img\icons.png" />
     <Content Include="Content\img\photo1.png" />
     <Content Include="Content\img\photo2.png" />
@@ -264,6 +287,7 @@
     <Content Include="Content\img\prod-3.jpg" />
     <Content Include="Content\img\prod-4.jpg" />
     <Content Include="Content\img\prod-5.jpg" />
+    <Content Include="Content\images\slide01.png" />
     <Content Include="Content\img\user1-128x128.jpg" />
     <Content Include="Content\img\user2-160x160.jpg" />
     <Content Include="Content\img\user3-128x128.jpg" />
@@ -291,6 +315,7 @@
     <Content Include="Content\js\popper.min.js" />
     <Content Include="Content\js\slick.min.js" />
     <Content Include="Content\js\typed.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\styleadmin\adminlte.css" />
     <Content Include="Content\styleadmin\adminlte.min.css" />
     <Content Include="Content\styleadmin\alt\adminlte.components.css" />
@@ -2257,6 +2282,19 @@
     <Content Include="Content\fonts\icomoon\fonts\icomoon.ttf" />
     <Content Include="Content\fonts\icomoon\fonts\icomoon.woff" />
     <Content Include="Content\fonts\icomoon\selection.json" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4118,8 +4156,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
@@ -4188,22 +4224,19 @@
     <Content Include="Scripts\jsadmin\plugins\summernote\summernote.js.map" />
     <Content Include="Scripts\jsadmin\plugins\summernote\summernote.min.js.map" />
     <Content Include="Scripts\jsadmin\plugins\toastr\toastr.js.map" />
-    <Content Include="Views\About\Index.cshtml" />
-    <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Courses\Index.cshtml" />
-    <Content Include="Views\Admissions\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\ProductCategory.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Home\ProductCategory.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\CoursesSingle\" />
     <Folder Include="Views\Default\" />
     <Folder Include="Views\Index\" />
-    <Folder Include="Views\NewsSingle\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

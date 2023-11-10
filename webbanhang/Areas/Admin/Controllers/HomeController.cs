@@ -10,11 +10,11 @@ namespace webbanhang.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        websiteBHEntities obj = new websiteBHEntities();
+
         public ActionResult Index()
         {
-            var lstProduct = obj.Products.ToList();
-            return View(lstProduct);
+            
+            return View();
         }
     }
 }

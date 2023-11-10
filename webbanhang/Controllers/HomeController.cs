@@ -27,10 +27,7 @@ namespace webbanhang.Controllers
         }
 
 
-        public ActionResult ProductCategory()
-        {
-            return View();
-        }
+
 
 
 
@@ -115,7 +112,20 @@ namespace webbanhang.Controllers
                 }
             }
             return View();
+
+        }
+        public ActionResult ProductCategory(int Id)
+        {
+            var listProduct = obj.Products.Where(n => n.CategoryId == Id).ToList();
+            return View(listProduct);
         }
 
+       
+        public ActionResult Logout()
+        {
+            Session.Clear();//remove session
+            return RedirectToAction("Login");
+
+        }
     }
 }

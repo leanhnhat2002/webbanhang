@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
     
-  
+    <link href="~/Content/css/style_admin.css" rel="stylesheet" />
+
+
 
     
     <link rel="stylesheet" href="~/Content/css/jquery.fancybox.min.css">
@@ -53,15 +55,36 @@
                 <div class="row align-items-center">
                     <div class="col-lg-9 d-none d-lg-block">
                         <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a>
-                        <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a>
-                        <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a>
+                        <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 0359171160</a>
+                        <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> leanhnhatcontact@gmail.com</a>
                     </div>
                     <div class="col-lg-3 text-right">
 
-                        
-                        @Html.ActionLink("Login", "Login", "Home",  new { }, null)
-                        @*@<a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>*@
-                        @Html.ActionLink("Register", "Register" ,"Home", new { }, null)
+                        <ul>
+                            
+                            @if (Session["idUser"] != null)
+                            {
+
+                                <li>
+                                    <a href="~/Admin/Home/Index">Trang quản trị</a>
+                                </li>
+                                <li>
+                                    <a href="~/Home/Logout" class="btn btn - warning">Đăng Xuất</a>
+                                </li>
+                                <li><a href="@Url.Action("Index", "Cart")">  Giỏ hàng </a></li>
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Đăng Nhập", "Login", "Home", new { }, null)
+                                @*@<a href="register.html" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>*@
+                                @Html.ActionLink("Đăng Ký", "Register", "Home", new { }, null)
+
+                            }
+                        </ul>
+
+
+
                     </div>
                 </div>
             </div>
@@ -72,30 +95,27 @@
                 <div class="d-flex align-items-center">
                     <div class="site-logo">
                         <a href="@Url.Action("Index","Home")" class="d-block">
-                            <img src="~/Content/images/logo.jpg" alt="Image" class="img-fluid">
+                            <img src="~/Content/images/logo1.png" alt="Image" class="img-fluid">
                         </a>
                     </div>
                     <div class="mr-auto">
                         <nav class="site-navigation position-relative text-right" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li class="active">
-                                    <a href="index.html" class="nav-link text-left">@Html.ActionLink("Home", "Index", "Home", new { }, null)</a>
+                                    <a href="index.html" class="nav-link text-left">@Html.ActionLink("Trang Chủ", "Index", "Home", new { }, null)</a>
                                 </li>
                                 <li class="has-children">
-                                    <a href="about.html" class="nav-link text-left">@Html.ActionLink("About Us", "Index", "About", new { }, null)</a>
-                                    <ul class="dropdown">
-                                        <li><a href="teachers.html">Our Teachers</a></li>
-                                        <li><a href="about.html">Our School</a></li>
-                                    </ul>
+                                    <a href="@Url.Action("Detail","Iphone", new { Id = 2})" class="nav-link text-left">@Html.ActionLink("Iphone", "ProductCategory", "Home", new { Id = 2 }, null)</a>
+
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("Index","Admissions")" class="nav-link text-left">Admissions</a>
+                                    <a href="@Url.Action("Detail","Samsung", new { Id = 1})" class="nav-link text-left">@Html.ActionLink("Samsung", "ProductCategory", "Home", new { Id = 1 }, null)</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("Index","Courses")" class="nav-link text-left">Courses</a>
+                                    <a href="@Url.Action("Detail","Oppo", new { Id = 4})" class="nav-link text-left">@Html.ActionLink("Oppo", "ProductCategory", "Home", new { Id = 4 }, null)</a>
                                 </li>
                                 <li>
-                                    <a href="@Url.Action("Index","Contact")" class="nav-link text-left">Contact</a>
+                                    <a href="@Url.Action("Detail","Xiaomi", new { Id = 2})" class="nav-link text-left">@Html.ActionLink("Xiaomi", "ProductCategory", "Home", new { Id = 5 }, null)</a>
                                 </li>
                             </ul>                                                                                                                                                                                                                                                                                          </ul>
                         </nav>
@@ -128,40 +148,40 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3">
-                            <p class="mb-4"><img src="~/Content/images/logo.png" alt="Image" class="img-fluid"></p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>
-                            <p><a href="#">Learn More</a></p>
+                            <p class="mb-4"><img src="~/Content/images/logo2.png" alt="Image" class="img-fluid"></p>
+                            <p>Shop Nhật Mobile với kinh nghiệm 8 năm trong lĩnh vực điện thoại di động đã và đang trong quá trình khẳng định mình trên thị trường điện thoại, máy tính bảng tại Việt Nam</p>
+
                         </div>
                         <div class="col-lg-3">
-                            <h3 class="footer-heading"><span>Our Campus</span></h3>
+                            <h3 class="footer-heading"><span>IPHONE</span></h3>
                             <ul class="list-unstyled">
-                                <li><a href="#">Acedemic</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Our Interns</a></li>
-                                <li><a href="#">Our Leadership</a></li>
-                                <li><a href="#">Careers</a></li>
-                                <li><a href="#">Human Resources</a></li>
+                                <li><a href="#">Iphone 15</a></li>
+                                <li><a href="#">Iphone 14</a></li>
+                                <li><a href="#">Iphone 13</a></li>
+                                <li><a href="#">Iphone 12</a></li>
+                                <li><a href="#">Iphone 11</a></li>
+                                <
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h3 class="footer-heading"><span>Our Courses</span></h3>
+                            <h3 class="footer-heading"><span>SAMSUNG</span></h3>
                             <ul class="list-unstyled">
-                                <li><a href="#">Math</a></li>
-                                <li><a href="#">Science &amp; Engineering</a></li>
-                                <li><a href="#">Arts &amp; Humanities</a></li>
-                                <li><a href="#">Economics &amp; Finance</a></li>
-                                <li><a href="#">Business Administration</a></li>
-                                <li><a href="#">Computer Science</a></li>
+                                <li><a href="#">Galaxy S23</a></li>
+                                <li><a href="#">Galaxy Z</a></li>
+                                <li><a href="#">Galaxy M34</a></li>
+                                <li><a href="#">Galaxy A14</a></li>
+                                <li><a href="#">Galaxy A04s</a></li>
+                                <li><a href="#">Galaxy A05s</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3">
-                            <h3 class="footer-heading"><span>Contact</span></h3>
+                            <h3 class="footer-heading"><span>OPPO</span></h3>
                             <ul class="list-unstyled">
-                                <li><a href="#">Help Center</a></li>
-                                <li><a href="#">Support Community</a></li>
-                                <li><a href="#">Press</a></li>
-                                <li><a href="#">Share Your Story</a></li>
-                                <li><a href="#">Our Supporters</a></li>
+                                <li><a href="#">Oppo Fin N3</a></li>
+                                <li><a href="#">Oppo Renod 10</a></li>
+                                <li><a href="#">Oppo A98</a></li>
+                                <li><a href="#">Oppo A18</a></li>
+                                <li><a href="#">Oppo A20</a></li>
                             </ul>
                         </div>
                     </div>
@@ -201,7 +221,7 @@
         <script src="~/Content/js/jquery.sticky.js"></script>
         <script src="~/Content/js/jquery.mb.YTPlayer.min.js"></script>
 
-
+    
 
 
         <script src="~/Content/js/main.js"></script>

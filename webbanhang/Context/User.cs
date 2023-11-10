@@ -19,5 +19,7 @@ namespace webbanhang.Context
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }

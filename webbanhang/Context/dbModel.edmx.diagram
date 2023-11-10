@@ -7,8 +7,11 @@
       <Diagram DiagramId="75cf4f8de1a84a73a5bc5e9b9749dadc" Name="Diagram1">
         <EntityTypeShape EntityType="websiteBHModel.Course" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="websiteBHModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="websiteBHModel.Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="websiteBHModel.Product" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="websiteBHModel.Cart" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="websiteBHModel.Order" Width="1.5" PointX="5.75" PointY="3.75" />
+        <EntityTypeShape EntityType="websiteBHModel.OrderDetail" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="websiteBHModel.Category" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

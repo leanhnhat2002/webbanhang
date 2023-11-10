@@ -17,7 +17,9 @@ namespace webbanhang.Context
         public int id { get; set; }
         public string Name { get; set; }
         public string Avatar { get; set; }
-        public string price { get; set; }
         public string Mota { get; set; }
+        public Nullable<int> CategoryId { get; set; }
+        public Nullable<int> Price { get; set; }
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }
