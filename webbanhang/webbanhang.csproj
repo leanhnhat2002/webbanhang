@@ -2261,9 +2261,6 @@
     <Content Include="Content\styleadmin\summernote\summernote.js.map" />
     <Content Include="Content\styleadmin\summernote\summernote.min.js.map" />
     <Content Include="Content\styleadmin\toastr\toastr.js.map" />
-    <Content Include="Areas\Admin\Views\Courses\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Courses\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Courses\Details.cshtml" />
     <EntityDeploy Include="Context\dbModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>dbModel.Designer.cs</LastGenOutput>
